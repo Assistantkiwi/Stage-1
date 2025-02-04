@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="description" content="Colour Game"/>
+        <link rel="stylesheet" type="text/css" href="./style.css" />
+        <script src="./script.js" defer></script>
+        <title>Guess The Colour Game</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Guess The Colour Game</h1>
+            <div class="scoreBoard">
+               <p id="round" class="round" data-testid="round">Round: 0/10</p>
+                <p id="score" class="score" data-testid="score">Score: 0</p>
+            </div>
+
+            <div id="colorDisplay" class="color-box" data-testid="colorBox">  
+            </div>
+
+            <div id="gameInstructions" data-testid="gameInstructions">
+                <p>Guess the color by clicking on the color options below!</p>
+            </div>
+
+            <div id="squares" class="colorOptions" data-testid="colorOption">
+                <button class="colorOption" ></button>
+                <button class="colorOption" ></button>
+                <button class="colorOption" ></button>
+                <button class="colorOption" ></button>
+                <button class="colorOption" ></button>
+                <button class="colorOption" ></button>
+            </div>
+
+            <div id="gameStatus" data-testid="gameStatus"></div>
+            <button id="resetButton">Reset</button>      
+        </div>
+        
+        <div id="gameOver" data-testid="gameOver" style="display: none;">
+            <h1>Game Over!</h1>
+            <p>Final Score: <span id="finalScore"></span></p>
+            <p>Click the button below to play again!</p>
+            <button id="newGameButton" data-testid="newGameButton" style="display: none;">New Game</button>
+        </div>
+       </body>
+</html>
