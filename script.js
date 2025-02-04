@@ -60,8 +60,9 @@ function checkGuess(color) {
         score++;
         updateScore();
         newRound();
+        displayMessage("Correct! Well done.", "correct");
     } else {
-        displayMessage("Wrong! Try again.");
+        displayMessage("Wrong! Try again.", "incorrect");
     }
 }
 
@@ -76,14 +77,18 @@ function updateRound() {
 }
 
 // Display a message to the player
-function displayMessage(message) {
+function displayMessage(message, type) {
     const gameStatus = document.getElementById("gameStatus");
     gameStatus.textContent = message;
+    gameStatus.className = '';
+   gameStatus.classList.add(type);
+    gameStatus.style.display = "block";
     gameStatus.classList.add("fade-out");
     setTimeout(() => {
         gameStatus.classList.remove("fade-out") 
-        gameStatus.textContent = "";
-    }, 1000);
+        gameStatus.textContent = '';
+        gameStatus.style.display = "none";
+    }, 2000);
 }
 
 // Handle game over state
