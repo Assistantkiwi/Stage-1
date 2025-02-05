@@ -12,8 +12,9 @@
         <div class="container">
             <h1>Guess The Colour Game</h1>
             <div class="scoreBoard">
-               <p id="round" class="round" data-testid="round">Round: 0/10</p>
                 <p id="score" class="score" data-testid="score">Score: 0</p>
+               <p id="highestScore" class="highestScore" data-testid="highestScore">Highest Score: 0</p>
+               
             </div>
 
             <div id="colorDisplay" class="color-box" data-testid="colorBox">  
@@ -24,17 +25,15 @@
             </div>
 
             <div id="squares" class="colorOptions" data-testid="colorOption">
-                <button class="colorOption" ></button>
-                <button class="colorOption" ></button>
-                <button class="colorOption" ></button>
-                <button class="colorOption" ></button>
-                <button class="colorOption" ></button>
-                <button class="colorOption" ></button>
+                <button class="colorOption" aria-label="Color option 1" ></button>
+                <button class="colorOption" aria-label="Color option 2" ></button>
+                <button class="colorOption" aria-label="Color option 3" ></button>
+                <button class="colorOption" aria-label="Color option 4" ></button>
+                <button class="colorOption" aria-label="Color option 5" ></button>
+                <button class="colorOption" aria-label="Color option 6" ></button>
             </div>
 
-            <div id="gameStatus" data-testid="gameStatus"></div>
-            
-            <button id="resetButton">Reset</button>      
+            <div id="gameStatus" data-testid="gameStatus"></div>      
         </div>
 
         <div id="gameOver" data-testid="gameOver" style="display: none;">

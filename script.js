@@ -1,16 +1,14 @@
 // Define variables
 let score = 0;
-let round = 0;
-const totalRounds = 10;
+let highestScore = 0;
 const allColors = ["red", "green", "blue", "yellow", "purple", "orange", "pink", "brown", "gray", ];
 let targetColor;
 
 // Initialize the game
 function initGame() {
     score = 0;
-    round = 0;
     updateScore();
-    updateRound();
+    updateHighestScore();
     newRound();
     document.getElementById("gameOver").style.display = "none";
     document.querySelector(".container").style.display = "block";
@@ -18,16 +16,10 @@ function initGame() {
 
 // Start a new round
 function newRound() {
-    if (round >= totalRounds) {
-        gameOver();
-        return;
-    }
     colors = getRandomColors(6);
     targetColor = colors[Math.floor(Math.random() * colors.length)];
     document.getElementById("colorDisplay").style.backgroundColor = targetColor;
     setColorOptions();
-    round++;
-    updateRound();
 }
 
 // Get an array of random colors
@@ -63,6 +55,7 @@ function checkGuess(color) {
         displayMessage("Correct! Well done.", "correct");
     } else {
         displayMessage("Wrong! Try again.", "incorrect");
+        setTimeout(gameOver, 1000);
     }
 }
 
@@ -71,9 +64,9 @@ function updateScore() {
     document.getElementById("score").textContent = `Score: ${score}`;
 }
 
-// Update the round display
-function updateRound() {
-    document.getElementById("round").textContent = `Round: ${round}/${totalRounds}`;
+// Update the highest score display
+function updateHighestScore() {
+    document.getElementById("highestScore").textContent = `Highest Score: ${highestScore}`;
 }
 
 // Display a message to the player
@@ -88,15 +81,19 @@ function displayMessage(message, type) {
         gameStatus.classList.remove("fade-out") 
         gameStatus.textContent = '';
         gameStatus.style.display = "none";
-    }, 2000);
+    }, 1000);
 }
 
 // Handle game over state
 function gameOver() {
-    displayMessage("Game Over! Your final score is " + score);
+    if (score > highestScore) {
+        highestScore = score;
+        updateHighestScore();
+    }
+    displayMessage("Game Over! Your final score is " + score, "black");
     document.querySelector(".container").style.display = "none";
     document.getElementById("gameOver").style.display = "flex";
-    document.getElementById("finalScore").textContent = score ;
+    document.getElementById("finalScore").textContent = score;
     document.getElementById("newGameButton").style.display = "flex";
     triggerCelebration();
 }
@@ -120,7 +117,7 @@ function resetGame() {
 // Add event listener to the new game button
 document.getElementById("newGameButton").addEventListener("click", resetGame);
 
-document.getElementById("resetButton").addEventListener("click", resetGame);
+
 
 // Initialize the game on page load
 window.onload = initGame;
