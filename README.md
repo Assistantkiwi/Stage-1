@@ -1,5 +1,5 @@
 # HNG stage-1 task
-#Guess the color game. 
+# Guess the color game. 
 
 Ased a modal to display the game instructions before the game starts with a button to start the game.
 A rainbow font for the headings, a color gradient background and the color options are bold and contasting.
