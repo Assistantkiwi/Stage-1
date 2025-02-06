@@ -13,7 +13,7 @@
             <h1 class="rainbow-text">Guess The Colour Game</h1>
             <div class="scoreBoard">
                 <p id="score" class="score" data-testid="score">Score: 0</p>
-               <p id="highestScore" class="highestScore">Highest Score: 0</p> 
+               <p id="timer" class="timer">Time: 60s</p> 
             </div>
 
             <div id="colorDisplay" class="color-box" data-testid="colorBox">  
@@ -35,6 +35,7 @@
         <div id="gameOver" data-testid="gameOver" style="display: none;">
             <h1 class="rainbow-text">Game Over!</h1>
             <p>Final Score: <span id="finalScore"></span></p>
+            <p id="highestScore" class="highestScore">highest Score: </p>
             <p>Click the button below to play again!</p>
             <button class="rainbow-button" id="newGameButton" data-testid="newGameButton" aria-label="Start a new game">New Game</button>
         </div>
@@ -42,7 +43,7 @@
         <div id="instructionsModal" class="modal" data-testid="gameInstructions">
             <div class="modal-content">
             <h2>Instructions</h2>
-            <p>Guess the color shown by clicking on the correct color options. If you guess wrongly, GAME OVER!!!</p>
+            <p>Guess the color shown by clicking on the correct color options during the time limit. When the time lapses, GAME OVER!!!</p>
             <button class="rainbow-button" id="playButton">Play</button>
             </div>
         </div>

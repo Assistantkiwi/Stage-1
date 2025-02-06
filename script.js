@@ -4,15 +4,38 @@ let score = 0;
 let highestScore = 0;
 const allColors = ["red", "green", "blue", "yellow", "purple", "orange", "pink", "brown", "gray", ];
 let targetColor;
+let timer;
+const gameDuration = 60;
+let timeRemaining = gameDuration;
 
 // Initialize the game
 function initGame() {
     score = 0;
+    timeRemaining = gameDuration;
     updateScore();
     updateHighestScore();
+    updateTimerDisplay();
     newRound();
     document.getElementById("gameOver").style.display = "none";
     document.querySelector(".container").style.display = "block";
+    startTimer();
+}
+
+// Start the timer
+function startTimer() {
+    timer = setInterval(() => {
+        timeRemaining--;
+        updateTimerDisplay();
+        if (timeRemaining <= 0) {
+            clearInterval(timer);
+            gameOver();
+        }
+    }, 1000);
+}
+
+// Update the timer display
+function updateTimerDisplay() {
+    document.getElementById("timer").textContent = `Time: ${timeRemaining}s`;
 }
 
 // Start a new round
@@ -56,7 +79,6 @@ function checkGuess(color) {
         displayMessage("Correct! Well done.", "correct");
     } else {
         displayMessage("Wrong! Try again.", "incorrect");
-        setTimeout(gameOver, 1000);
     }
 }
 
@@ -87,6 +109,7 @@ function displayMessage(message, type) {
 
 // Handle game over state
 function gameOver() {
+    clearInterval(timer);
     if (score > highestScore) {
         highestScore = score;
         updateHighestScore();
@@ -95,6 +118,7 @@ function gameOver() {
     document.querySelector(".container").style.display = "none";
     document.getElementById("gameOver").style.display = "flex";
     document.getElementById("finalScore").textContent = score;
+    document.getElementById("highestScoreDisplay").textContent = highestScore;
     document.getElementById("newGameButton").style.display = "flex";
     triggerCelebration();
 }
@@ -110,6 +134,7 @@ function triggerCelebration() {
 
 // Reset the game
 function resetGame() {
+    clearInterval(timer);
     document.querySelector(".container").classList.remove("game-over");
     document.getElementById("gameOver").style.display = "none";
     showInstructionsModal();
