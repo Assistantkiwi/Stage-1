@@ -5,7 +5,7 @@ let highestScore = 0;
 const allColors = ["red", "green", "blue", "yellow", "purple", "orange", "pink", "brown", "gray", ];
 let targetColor;
 let timer;
-const gameDuration = 60;
+let gameDuration = 60;
 let timeRemaining = gameDuration;
 
 // Initialize the game
@@ -118,7 +118,7 @@ function gameOver() {
     document.querySelector(".container").style.display = "none";
     document.getElementById("gameOver").style.display = "flex";
     document.getElementById("finalScore").textContent = score;
-    document.getElementById("highestScoreDisplay").textContent = highestScore;
+    document.getElementById("highestScore").textContent = highestScore;
     document.getElementById("newGameButton").style.display = "flex";
     triggerCelebration();
 }
@@ -137,6 +137,7 @@ function resetGame() {
     clearInterval(timer);
     document.querySelector(".container").classList.remove("game-over");
     document.getElementById("gameOver").style.display = "none";
+    gameDuration = Math.max(15, gameDuration - 10); // Reduce the game duration by 10 seconds, but not below 15 seconds
     showInstructionsModal();
 }
 
