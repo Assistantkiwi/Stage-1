@@ -10,19 +10,15 @@
     </head>
     <body>
         <div class="container">
-            <h1>Guess The Colour Game</h1>
+            <h1 class="rainbow-text">Guess The Colour Game</h1>
             <div class="scoreBoard">
                 <p id="score" class="score" data-testid="score">Score: 0</p>
-               <p id="highestScore" class="highestScore" data-testid="highestScore">Highest Score: 0</p>
-               
+               <p id="highestScore" class="highestScore" data-testid="highestScore">Highest Score: 0</p> 
             </div>
 
             <div id="colorDisplay" class="color-box" data-testid="colorBox">  
             </div>
 
-            <div id="gameInstructions" data-testid="gameInstructions">
-                <p>Guess the color by clicking on the color options below!</p>
-            </div>
 
             <div id="squares" class="colorOptions" data-testid="colorOption">
                 <button class="colorOption" aria-label="Color option 1" ></button>
@@ -37,10 +33,19 @@
         </div>
 
         <div id="gameOver" data-testid="gameOver" style="display: none;">
-            <h1>Game Over!</h1>
+            <h1 class="rainbow-text">Game Over!</h1>
             <p>Final Score: <span id="finalScore"></span></p>
             <p>Click the button below to play again!</p>
-            <button id="newGameButton" data-testid="newGameButton" style="display: none;">New Game</button>
+            <button class="rainbow-button" id="newGameButton" data-testid="newGameButton" aria-label="Start a new game">New Game</button>
         </div>
+
+        <div id="instructionsModal" class="modal" data-testid="gameInstructions">
+            <div class="modal-content">
+            <h2>Instructions</h2>
+            <p>Guess the color shown by clicking on the correct color options. If you guess wrongly, GAME OVER!!!</p>
+            <button class="rainbow-button" id="playButton">Play</button>
+            </div>
+        </div>
+       
        </body>
 </html>

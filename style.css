@@ -1,13 +1,42 @@
-body {
+@font-face {
+    font-family: 'Custom Font';
+    src: url('./fonts/BalonkuRegular-la1w.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Unique Font';
+    src: url('./fonts/SunnyspellsRegular-MV9ze.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Opening Font';
+    src: url('./fonts/BubbleBats-YqlJq.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Botton Font';
+    src: url('./fonts/BubbleGames-nAYMY.otf') format('opentype');
+}
+
+
+
+html, body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background: linear-gradient(135deg,  #9be1e5 0%,  #7990af 100%);
     margin: 0;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+    height: 100vh;
+}
+
+h1 {
+    font-family: 'Custom Font', sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    margin-bottom: 10px;
 }
 
 .container {
@@ -39,23 +68,6 @@ body {
     margin: 10px 0;
 }
 
-#resetButton {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 20px 20px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 20px;
-    margin: 15px 4px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
-
-#resetButton:hover {
-    background-color: #45a049;
-}
 
 #squares {
     display: flex;
@@ -81,8 +93,9 @@ body {
 .scoreBoard {
     display: flex;
     justify-content: space-between;
-    margin: 10px 0;
-    font-size: 18px;
+    margin: 5px 0;
+    font-family: 'Unique Font', sans-serif;
+    font-size: 30px;
 }
 
 #gameStatus {
@@ -131,7 +144,7 @@ body {
 }
 
 #newGameButton {
-    background-color: #007bff;
+    font-family: 'Button Font', sans-serif;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -144,9 +157,6 @@ body {
    
 }
 
-#newGameButton:hover {
-    background-color: #0056b3;
-}
 
 #gameOver {
     background-color: white;
@@ -163,12 +173,12 @@ body {
     justify-content: center;
 }
 
-#gameOver h1 {
-    color: #721c24;
-}
 
 #gameOver p {
-    font-size: 18px;
+    font-weight: lighter;
+    font-size: 35px;
+    font-family: 'unique font', sans-serif;
+    margin: 5px 0;
 }
 
 @keyframes celebration {
@@ -240,4 +250,75 @@ body {
         width: 40px;
         height: 40px;
     }
+}
+
+/* Rainbow text animation */
+@keyframes rainbow-move {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.rainbow-text {
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    background-size: 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow-move 5s linear infinite;
+}
+
+@keyframes rainbow {
+    0% { background-color: red; }
+    14% { background-color: orange; }
+    28% { background-color: yellow; }
+    42% { background-color: green; }
+    57% { background-color: blue; }
+    71% { background-color: indigo; }
+    85% { background-color: violet; }
+    100% { background-color: red; }
+}
+
+.rainbow-button {
+    animation: rainbow 5s infinite;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    font-family: 'Opening Font', sans-serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+#playButton {
+    font-family: 'Button Font', sans-serif;
+    color: white;
+    border: none;
+    padding: 20px 25px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    margin: 15px 0;
+    cursor: pointer;
+    border-radius: 4px;
 }

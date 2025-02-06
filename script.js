@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', function() {
 // Define variables
 let score = 0;
 let highestScore = 0;
@@ -111,13 +112,30 @@ function triggerCelebration() {
 function resetGame() {
     document.querySelector(".container").classList.remove("game-over");
     document.getElementById("gameOver").style.display = "none";
+    showInstructionsModal();
+}
+
+// Show instructions modal
+function showInstructionsModal() {
+    document.getElementById("instructionsModal").style.display = "block";
+}
+
+// Hide instructions modal and start the game
+function startGame() {
+    document.getElementById("instructionsModal").style.display = "none";
     initGame();
 }
 
 // Add event listener to the new game button
 document.getElementById("newGameButton").addEventListener("click", resetGame);
 
+// Start the game when the play button is clicked
+document.getElementById("playButton").addEventListener("click", startGame);
+
+// Show instructions modal on page load
+showInstructionsModal();
+});
 
 
 // Initialize the game on page load
-window.onload = initGame;
+//window.onload = initGame;
